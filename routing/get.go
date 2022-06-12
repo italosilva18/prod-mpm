@@ -1,16 +1,11 @@
 package routing
 
 import (
-	"net/http"
-
+	"github.com/italosilva18/prod-mpm/controllers"
 	"github.com/labstack/echo/v4"
 )
 
-var Get *getRouting
-
-type getRouting struct {
-}
-
-func (t *getRouting) Novo(c echo.Context) error {
-	return c.JSON(http.StatusOK, "ponteiro funcionando")
+func UserRoute(e *echo.Echo) {
+	e.GET("/pont", controllers.Get.Novo)
+	e.GET("/2", controllers.Users.Sim)
 }
