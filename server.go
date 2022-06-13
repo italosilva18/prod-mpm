@@ -1,17 +1,19 @@
 package main
 
 import (
-	"net/http"
-
+	"github.com/italosilva18/prod-mpm/router"
+	"github.com/labstack/echo/middleware"
 	"github.com/labstack/echo/v4"
 )
 
-func index(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
-}
-
 func main() {
-	e := *echo.New()
-	e.GET("/", index)
+
+	e := echo.New()
+
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
+	router.Root(e)
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
