@@ -17,6 +17,8 @@ func (t *userRouting) Show(c echo.Context) error {
 func (t *userRouting) Add(c echo.Context) error {
 	return c.JSON(http.StatusOK, "ponteiro add")
 }
+
+/*
 func (t *userRouting) Delete(c echo.Context) error {
 	return c.JSON(http.StatusOK, "ponteiro del")
 }
@@ -32,3 +34,4 @@ type getRouting struct {
 func (t *getRouting) Novo(c echo.Context) error {
 	return c.String(http.StatusOK, "ola")
 }
+*/
