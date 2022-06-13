@@ -12,16 +12,16 @@ type userRouting struct {
 }
 
 func (t *userRouting) Show(c echo.Context) error {
-	return c.JSON(http.StatusOK, "ponteiro funcionando")
+	return c.JSON(http.StatusOK, "ponteiro Sw")
 }
 func (t *userRouting) Add(c echo.Context) error {
-	return c.JSON(http.StatusOK, "ponteiro funcionando")
+	return c.JSON(http.StatusOK, "ponteiro add")
 }
 func (t *userRouting) Delete(c echo.Context) error {
-	return c.JSON(http.StatusOK, "ponteiro funcionando")
+	return c.JSON(http.StatusOK, "ponteiro del")
 }
 func (t *userRouting) Update(c echo.Context) error {
-	return c.JSON(http.StatusOK, "ponteiro funcionando")
+	return c.JSON(http.StatusOK, "ponteiro upd")
 }
 
 var Get *getRouting
