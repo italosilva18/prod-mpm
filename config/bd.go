@@ -1,7 +1,8 @@
-package config
+package configs
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -9,17 +10,32 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func getConnection() (client *mongo.Client, ctx context.Context) {
+func ConnectDB() *mongo.Client {
 	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://costa:costa2013@costa.ukakxlb.mongodb.net/?retryWrites=true&w=majority"))
 	if err != nil {
 		log.Fatal(err)
 	}
-	ctx, _ = context.WithTimeout(context.Background(), 10*time.Second)
+
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	err = client.Connect(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	return
+	//ping the database
+	err = client.Ping(ctx, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("Connected to MongoDB")
+	return client
+}
 
+//Client instance
+var DB *mongo.Client = ConnectDB()
+
+//getting database collections
+func GetCollection(client *mongo.Client, collectionName string) *mongo.Collection {
+	collection := client.Database("golangAPI").Collection(collectionName)
+	return collection
 }
