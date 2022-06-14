@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/italosilva18/prod-mpm/configs"
+	"github.com/italosilva18/prod-mpm/repository"
 	"github.com/italosilva18/prod-mpm/router"
 	"github.com/labstack/echo/v4"
 )
@@ -11,7 +11,7 @@ func main() {
 
 	router.Root(e)
 
-	configs.ConnectDB()
+	repository.ConnectDB()
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":6000"))
 }
