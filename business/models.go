@@ -1,14 +1,17 @@
 package models
 
-type UserResponse struct {
-	Nome    int    `json:"status"`
-	Message string `json:"message"`
+
+
+
+var VarUser *user
+
+type user struct {
+gorm.Model	
 }
 
-/*
-func (this *UserResponse) Add (name string, message string) (user, error) {
+func (this *user) Add (name string, message string) (user, error) {
 	var UserResponse User
-	db =
+	db = repository.setup
 
 	if err := db.Create(&varuser). Error; err != nil {
 	return user{}, err
