@@ -13,5 +13,5 @@ func main() {
 
 	repository.ConnectDB()
 
-	e.Logger.Fatal(e.Start(":6000"))
+	e.Logger.Fatal(e.Start(":1323"))
 }

@@ -1,12 +1,13 @@
 package models
 
-
-
+/*
 
 var VarUser *user
 
 type user struct {
-gorm.Model	
+	gorm.Model
+	Acount
+
 }
 
 func (this *user) Add (name string, message string) (user, error) {
