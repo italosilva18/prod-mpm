@@ -27,9 +27,11 @@ func (t *userRouting) Show(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 	return c.JSON(http.StatusOK, users[id])
 }
+
 func (t *userRouting) Add(c echo.Context) error {
 	u := &user{
-		ID: seq,
+		ID:   seq,
+		Name: "italo",
 	}
 	if err := c.Bind(u); err != nil {
 		return err
@@ -37,6 +39,7 @@ func (t *userRouting) Add(c echo.Context) error {
 	users[u.ID] = u
 	seq++
 	return c.JSON(http.StatusCreated, u)
+
 }
 
 func (t *userRouting) Delete(c echo.Context) error {
